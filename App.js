@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import Task from './components/Task';
 
 export default function App() {
@@ -17,6 +18,19 @@ export default function App() {
         </View>
       </View>
 
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "padding"} // Use "padding" for Android as well
+        style={styles.writeTaskWrapper}
+      >
+        <TextInput style={styles.input} placeholder={'write a task'}/>
+
+        <TouchableOpacity>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+
     </View>
   );
 }
@@ -30,11 +44,22 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingHorizontal: 20,
   },
-sectionTitle: {
-  fontSize: 24,
-  fontWeight: 'bold'
-},
-items: {
-  marginTop: 30
-},
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold'
+  },
+  items: {
+    marginTop: 30
+  },
+  writeTaskWrapper: {
+    position: 'absolute',
+    bottom: 60,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  input: {},
+  addWrapper: {},
+  addText: {},
 });

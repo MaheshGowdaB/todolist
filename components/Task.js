@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Task = (props) => {
