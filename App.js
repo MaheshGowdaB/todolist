@@ -13,7 +13,7 @@ const Task = (props) => {
     </View>
   );
 };
-{/* */}
+{/* s*/}
 export default function App() {
   const [task, setTask] = useState('');
   const [taskItems, setTaskItems] = useState([]);
